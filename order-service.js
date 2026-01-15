@@ -21,15 +21,15 @@ const server = http.createServer((req, res) => {
         return void res.end();
     }
 
-    req.setHeader('Content-Type', 'application/json');
+    res.setHeader('Content-Type', 'application/json');
 
     res.end(JSON.stringify({
         id,
-        menu: menus[id % menu.length],
+        menu: menus[id % menus.length],
     }));
 });
 
 server.listen(process.env.PORT || 0, () => {
     const { port } = server.address();
-    console.log(`Order Service Listening on localhost on port:  ${port}`);
+    console.log(`Order Service Listening on localhost on port: ${port}`);
 })

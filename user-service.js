@@ -20,10 +20,12 @@ const server = http.createServer((req, res) => {
         return void res.end();
     }
 
-    req.setHeader('Content-Type', 'application/json')
+    res.setHeader('Content-Type', 'application/json');
+
+
     res.end(JSON.stringify({
         id, 
-        user: users[id % user.length],
+        user: users[id % users.length],
     }));
 });
 
